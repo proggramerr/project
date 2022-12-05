@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Economica:wght@700&family=Ubuntu&display=swap" rel="stylesheet">
+    <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css\animate.css'%}">
+    <title>Клининг Порядок</title>
+    <link rel="shortcut icon" href="{% static 'img\pngwing.com.png' %}" type="image/x-icon" >
+</head>
+<body>
+<header class="Main" id="MainHead">
+<div class="Header_line">
+    <div class="Header">
+        <div class="Logo">
+            <li><h1 class="Logo">Клининг Порядок</h1></li>
+        </div>
+        <div class="Menu">
+            <nav>
+                <li><a href="{% url 'index' %}" class='Main-Btn'>Главная</a></li>
+                <li><a href="#PriceSect">Прайс</a></li>
+                <li><a href="#SliderSect">Галерея</a></li>
+            </nav>
+        </div>
+        <div class="Button">
+            <a href="" class="btn" id="OpenPopUp">Записаться</a>
+        </div>
+        <div class="Info">
+            <li><img class="number" src="{% static 'img\—Pngtree—white call icon png_3562069 1 (1).svg' %} " alt=""></li>
+            <li><a href="tel:+79996441266"><h2>+7 (999) 644-12-66</h2></a></li>
+            {% comment %} <li><h2>info@clining.ru</h2></li> {% endcomment %}
+        </div>
+        <div class="Burger">
+            <span class="Bar"></span>
+            <span class="Bar"></span>
+            <span class="Bar"></span>
+        </div>
+    </div>
+</div>
+</header>
+
+{% block content %}{% endblock %}
+
+<footer>
+    <div class="FooterInfo" >
+        <div class="Logotype">
+            <h1>Клининг Порядок</h1>
+        </div>
+        {% comment %} <div class="Pages">
+            <h2>Страницы</h2>
+            <a href="{% url 'user-agree'%}">Пользовательское соглашение</a>
+            <a href="#">Политика конфиденциальности</a>
+        </div> {% endcomment %}
+        <div class="MainInfo">
+            <div class="Contact">
+                <h2>Контакты</h2>
+                <li>+7(999)644-12-66</li>
+                <div class="Mail">
+                    <img src="{% static 'img\free-icon-mail-5220207 1.svg' %}" alt="">
+                    <li>info@cleaning.ru</li>
+                </div>
+                <li>г.Иркутск</li>
+            </div>
+            <div class="SocMedia">
+                <h2>Соц.Сети</h2>
+                <div class="Icons">
+                    <a href="#"><img src="{% static 'img\vk 1.svg' %}" alt=""></a>
+                    <a href="#"><img src="{% static 'img\whatsapp 1.svg' %}" alt=""></a>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <figure class="EndFig">
+        <h2 class="End">2022 Клининговая компания Порядок</h2>
+    </figure>
+</footer>
+
+<div class="PopUp" id="PopUp">
+    <div class="PopUpContainer">
+        <div class="PopUpBody" id="PopUpBody">
+            <div class="PopUpClose" id="PopUpClose">&#10006</div>
+            <figure class="PopHeader" id='PopHeadId'>
+                <h2 class="PopHeadName">Оставить заказ</h2>
+            </figure>
+            <form method='post' id='PopUpForm' class='FormAjax'>
+                {% csrf_token %}
+                {{ namepop }}
+                {{ numberpop}}
+                {{ email }}
+                <button class="btn3" type="submit" name='PopUpButton' id='sendmail'>Заказать</button>
+                <div class='necess-field'>* - обязательное поле</div>
+            </form>
+            <div class='Sucess' id='SucessAjax'>Спасибо за заявку</div>
+            <div class="InfoPop">
+                <h3>8(999)644-12-66</h3>
+                <h3>info@cleaning.ru</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="https://unpkg.com/imask"></script>
+<script type="text/javascript">
+    var element = document.getElementById('id_numbers');
+    var maskOptions = {
+        mask: '+7 (000) 000-00-00',
+        lazy: false
+    } 
+    var mask = new IMask(element, maskOptions);
+    $("#PopUpForm").submit(function (e) { 
+        e.preventDefault();
+         $('#sendmail').attr('disabled', true);
+         $('#sendmail').empty();
+         $('#sendmail').append("<div class='circle'></div>");
+         var form_data = $(this).serialize();
+         $.ajax({
+             type: "POST",
+             url: "/mainform",
+             data: form_data,
+                success: function (data) {
+                $('#PopUpForm').hide(500);
+                $('.PopHeader').css('display','none');
+                $('#SucessAjax').removeClass('Sucess').addClass('Sucess active'); 
+             }  
+         });
+     });
+</script>
+<script src="{% static 'js\script.js' %}"></script>
+<script src="{% static 'js\jquery.maskedinput.min.js' %}"></script>
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script>new WOW().init();</script>
+
+</html>

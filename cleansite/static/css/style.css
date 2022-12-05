@@ -1,0 +1,1054 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.Logo {
+    display: inline-block;
+    font-family: 'Pattaya';
+    font-size: 30px;
+    color: white;
+    text-shadow: 0px 4px 4px #000;
+    font-weight: normal;
+    padding-right: 70px;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.Header_line{
+    width: 100%;
+    min-height: 73px;
+    background-color:#005A8C;
+    z-index: 100;
+    position: fixed;
+}
+
+.Header{
+    width: 100%;
+    max-width: 1366px;
+    margin: 0 auto;
+}
+
+.Header_line.fix{ 
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color:#005A8C;
+}
+
+.Header_line.fixed{
+    position: fixed;
+    animation-name: show_header;
+    animation-duration: 1s;
+}
+
+@keyframes show_header {
+    0%{
+        opacity: 0;
+        top: -70px;
+    }
+    100%{
+        opacity: 1;
+        top: 0;
+    }
+}
+
+.Menu, li {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.Menu a {
+    vertical-align: middle;
+    color: white;
+    padding: 25px;
+    text-decoration: none;
+    line-height: 0;
+    font-family:  Roboto Slab;
+    font-size: 20px;
+}
+.Menu a:hover{
+    color: #CACE00;
+}
+
+.Menu, .Button {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.Button{
+    margin-left: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 15px;;
+    margin-top: 10px;
+    /* padding-bottom: 15px; */
+}
+
+.btn {
+    font-size: 20px;
+    font-family: 'Economica', sans-serif;
+    color: white;
+    background: linear-gradient(to left, #FDC830, #F37335);
+    text-decoration: none;
+    padding: 15px 35px;
+    border-radius: 10px;
+    background-size: 200%;
+    transition: .3s;
+    border: none;
+}
+
+.btn:hover{
+    background-position: right;
+    cursor: pointer;
+}
+
+
+
+.Menu, .Info {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.Info{
+    margin-left: 100px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 5px;
+}
+
+.Info h2{
+    padding: 10px;
+    font-family: 'Economica', sans-serif;
+    color: white;
+    font-size: 25px;
+}
+
+.Info .number{
+    max-width: 45px;
+    max-height: 45px;
+    margin-top: 20%;
+    /* opacity: 0.4; */
+}
+
+.Info li a{
+    text-decoration: none;
+}
+.Info li a :hover{
+    color: #CACE00;
+}
+
+
+.Burger{
+    display: none;
+    cursor: pointer;
+}
+
+.Bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+    right: 0;
+}
+
+@media (max-width: 1335px) {
+    .Header, .Header_line.fixed, .Header_line.fix{
+        max-width: 100vw;
+    }
+    /* .Info{
+        display: none;
+    } */
+    .Button{
+        display: none;
+    }
+    .Logo{
+        padding-right: 80px;
+    }
+    .Info{
+        margin-left: 50px;
+    }
+}
+
+@media (max-width:1080px){
+    .Info{
+        margin-left: 0px;
+        text-align: center;
+        margin-left: 20px;
+    }
+}
+
+@media (max-width:900px){
+    .Logo{
+        padding-right:20px ;
+    }
+}
+
+@media (max-width: 1027px) {
+    .Header, .Header_line.fixed, .Header_line.fix{
+        max-width: 100vw;
+    }
+    .Main-Btn{
+        display: none;
+    }
+    /* .Info{
+        margin-left: 0px;
+    } */
+}
+
+
+@media (max-width: 869px) {
+    .Header, .Header_line.fixed, .Header_line.fix{
+        max-width: 100vw;
+    }
+    
+    .Main-Btn{
+        display: block;
+    }
+
+    .Info{
+        padding-top:5px ;
+    }
+
+    .Logo{
+        padding-right: 20px;
+        padding-left: 5px;
+    }
+    .Burger{
+        display: block;
+        /* float: left; */
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 20px 20px 20px 0px;
+    }
+
+    .Burger.active .Bar:nth-child(2){
+        opacity: 0;
+    }
+
+    .Burger.active .Bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .Burger.active .Bar:nth-child(3){
+        transform: translateY(-8px) rotate(45deg);
+    }
+    .Button{
+        display: none;
+    }
+    .Menu{
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #005A8C;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+    .Menu li{
+        margin: 16px 0;
+    }
+
+    .Menu.active{
+        left: 0px;
+    }
+}
+
+.Main-Screen {
+    top: 0;
+    z-index: -1;
+    /* position: absolute; */
+    padding-top: 73px;
+    width: 100%;
+    height: calc(100vh - 73px);
+    background:url(../img/plan1.jpg) center no-repeat;
+    background-size: cover;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    background-attachment: fixed;
+}
+
+.overlay{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    opacity: 0.2;
+    z-index: 1;
+}
+
+.Screen{
+    width: 100vw;
+    max-width: 1100px;
+    margin: 0 auto;
+
+}
+
+.Screen-Info{
+    position: relative;
+    z-index: 2;
+    margin-bottom: 50px;
+    max-width: 480px;
+    max-height: 640px;
+    padding-left: 10px;
+    /* padding-right: ; */
+}
+
+.Professional {
+    font-family: 'Ubuntu', sans-serif;
+    color: black;
+    font-size: 36px;
+    font-weight: 600;
+    
+    /* word-break: break-all; */
+ }
+
+ .In_Irk {
+    font-family: 'Ubuntu', sans-serif;
+    color: #0084CE;
+    font-size: 35px;
+    
+}
+
+.Quote {
+    display: inline-block;
+    margin-top: 20px;
+    font-family: Ubuntu;
+    color: black;
+    font-size: 20px;
+    font-weight: 400;
+    word-wrap: break-word;
+ }
+ .btn1{
+    margin-top: 100px;
+    font-size: 25px;
+    font-family: 'Economica', sans-serif;
+    color: white;
+    background: #0084CE;
+    text-decoration: none;
+    padding: 20px 35px;
+    border-radius: 30px;
+    background-size: 200%;
+    transition: .5s;
+    border: none;
+ }
+
+ .btn1:hover {
+    background: #005A8C;
+    cursor: pointer;
+}
+
+.ImgSVG {
+    margin-top: 100px;
+    float: right;
+    padding-left: 10px;
+}
+
+.Exam{
+    font-family: 'Ubuntu', sans-serif;
+    color: black;
+    font-size: 20px;
+    font-weight: 100;
+    text-align: right;
+    float: right;
+    margin-top: 110px;
+}
+
+.ScreenExam{
+    text-decoration: none;
+    font-family: 'Ubuntu', sans-serif;
+    color: black;
+}
+
+@media (max-width: 370px) {
+    .ImgSVG{
+        padding-left: 0px;
+        max-width: 50px;
+        max-height: 50px;
+        margin-top: 110px;
+    }
+}
+
+.Service-Panel{
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.Panel{
+    min-height: 300px;
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Panel-Item{
+    margin-bottom: 50px;
+    height: 260px;
+    width: 220px;
+    text-align: center;
+    margin: 0 auto;
+
+}
+
+.Item-Header{
+    justify-content: center;
+    text-transform: uppercase;
+    font-family: Ubuntu;
+    font-weight: lighter;
+}
+
+.Item-Header span{
+    color: #0084CE;
+}
+
+
+.Panel-Item img{
+    max-width: 100%;
+    max-height: 150px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.Price{
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 187px;
+}
+
+.Price-Header{
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    color: black;
+    font-size: 35px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+
+.Price-Header span{
+    color: #0084CE;
+}
+
+.Price-Elem{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+.Price-Item{
+    width: 380px;
+    max-width: 100%;
+    height: 220px;
+    border-bottom: solid;
+    border-color: gray;
+    border-width: 1px;
+    margin: 0 auto;
+}
+
+.Price-Item-Header{
+    font-family: Ubuntu;
+    font-size: 22px;
+    margin-left: 20px;
+    margin-top: 23px;
+    word-break: break-all;
+}
+
+.Price-Article{
+    font-family: Ubuntu;
+    font-size: 18px;
+    font-weight: lighter;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.Price-Article span{
+    font-weight: bold;
+} 
+
+@media (max-width:500px) {
+    .Price-Item{
+        height: 180px;
+    }
+
+    .Price-Item-Header{
+        font-size: 18px;
+        text-align: center;
+    }
+    .Price-Article{
+        width: 100%;
+        font-size: 15px;
+        text-align: center;
+        margin-left: 0;
+    }
+}
+
+.WhyMeBack {
+    z-index: -1;
+    width: 100%;
+    min-height: 484px;
+    background: url(../img/фон2.png) center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.WhyMe{
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.WhyMeHeader{
+    padding-top: 20px;
+    text-align: center;
+    font-size: 35px;
+    color: white;
+    font-family: Ubuntu;
+}
+
+.TitleWhy{
+    font-family: Ubuntu;
+    font-size: 22px;
+    color: #CACE00;
+}
+
+.ArticleWhy{
+    margin-top: 13px;
+    font-family: Ubuntu;
+    font-size: 18px;
+    color: white;
+}
+
+.WhyMeItem{
+    /* margin-left: 30px; */
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 30px;
+    /* padding-right: 25px; */
+}
+
+.WhyMeScreen{
+    margin: 0 auto;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.WhyMeScreen img{
+    max-height: 180px;
+}
+
+.Slider{
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
+
+.SliderHeader {
+    margin: 0 auto;
+    width: 350px;
+    max-width: 80%;
+    min-height: 70px;
+    transform: skew(-15deg);
+    background: #CACE00;
+    margin-bottom: 30px;
+    
+}
+
+.HeaderText{
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    padding-top: 9px;
+    transform: skew(15deg);
+    font-family: Ubuntu;
+}
+
+.SliderItem{
+    margin: 0 auto;
+}
+
+.SliderItem img{
+    width: auto;
+    max-width: 100%;
+    height: 280px;
+    
+}
+
+.SliderScreen{
+    display: flex;
+    flex-wrap: wrap;
+    /* margin-left: 30px */
+}
+
+
+.FirstBlock, .SecondBlock{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    margin-top: 30px;
+
+}
+
+.FeedBack {
+    z-index: -1;
+    width: 100%;
+    background: url(../img/plan3.png) center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.FeedBack img{
+    transform: rotate(-30deg);
+}
+
+.FeedBackInfo {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.FeedBackSect{
+    margin: 0 auto;
+}
+
+.FeedBackMenu{
+    margin: 0 auto;
+    background-color: white;
+    border: 10px solid;
+    border-color: #FF7A00;
+    
+}
+
+.FeedBackMenu h2{
+    font-size: 40px;
+    font-family: Roboto;
+    text-align: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 15px;
+}
+
+.FeedBackMenu h2 span{
+    color: #FF7A00;
+}
+
+.FormName, .FormPhone{
+    margin-left: 50px;
+
+}
+
+.FormPhone{
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.FormName input{
+    max-width: 150px;
+}
+
+.FormPhone input{
+    max-width: 230px;
+}
+
+.FeedBack label{
+    font-size: 20px;
+    font-family: Roboto;
+    color: #FF7A00;
+}
+
+.btn2{
+    /* float: right; */
+    width: 200px;
+    margin-right: 10px;
+    font-size: 30px;
+    font-family: Roboto;
+    color: white;
+    background: #FF7A00;
+    text-decoration: none;
+    padding: 10px 35px;
+    border-radius: 50px;
+    background-size: 200%;
+    transition: .5s;
+    border: none;
+    /* float: right; */
+    margin-bottom: 30px;
+    margin-top: 30px;
+    margin-left: 50px;
+    /* z-index: 100; */
+}
+
+.circle{
+    margin: 0 auto;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 7px solid rgba(255, 255, 255, .1);
+    border-top: 7px solid #fff;
+    animation: animate 2s infinite linear;
+}
+
+@keyframes animate{
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.btn2:hover {
+    background-position: right;
+    cursor: pointer;
+    background: #AE5503;
+}
+
+.Forms{
+    max-width: 180px;
+}
+
+.FeedBackMenu input{
+    border-radius: 10px;
+    border: solid 1px;
+    border-color: #FF7A00;
+    min-height: 30px;
+    /* min-width: 150px; */
+    font-family: Roboto;
+    font-size: 25px;
+    /* margin-left: 5px; */
+    text-align: center;
+}
+
+@media (max-width: 880px) {
+    .FeedBack img{
+        display: none;
+    }
+}
+
+footer{
+    width: 100%;
+    background-color: black;
+    position: relative;
+    bottom:0;
+}
+
+footer a{
+    display: block;
+}
+
+footer h1{
+    font-size: 45px;
+    font-family: 'Pattaya';
+    color: white;
+    text-shadow: 0px 4px 4px #000;
+    font-weight: normal;
+    padding-bottom: 10px;
+}
+
+
+footer .Contact{
+    color: white;
+    font-family: Ubuntu;
+    font-size: 15px;
+}
+
+.FooterInfo{
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* align-items: baseline; */
+}
+footer h2{
+    font-family: Ubuntu;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.Logotype, .Pages{
+    width: 360px;
+    max-width: 100%;
+}
+
+.Logotype, .Pages, .Contact, .SocMedia{
+    margin-left: 10px;
+}
+
+/* .MainInfo{
+    flex: 1
+} */
+
+.Pages{
+    margin-right: auto;
+  
+}
+
+.SocMedia{
+    margin-top: 10px;
+}
+
+.Icons img{
+    margin-right: 23px;
+}
+
+.Icons a{
+    display: inline-block;
+}
+
+
+.Mail li{
+    margin-bottom: 20px;
+}
+
+.Mail{
+    margin-top: 10px;
+}
+
+/* .MainInfo{
+    margin: 0 auto
+} */
+
+.Pages a{
+    text-decoration: none;
+    color: white;
+    font-family: Ubuntu;
+    font-weight: lighter;
+    padding-bottom: 10px
+}
+
+
+/* .End{
+    
+    text-align: center;
+} */
+
+.EndFig {
+    margin: 0 auto;
+    margin-top: 100px;
+    max-width: 800px; 
+    border-top: 1px solid;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-color: #FF7A00;
+}
+
+.End{
+    margin-bottom: 0px;
+    padding-bottom: 17px;
+    text-align: center;
+    color: white;
+    font-size: 15px;
+    padding-top: 17px;
+    font-family: Ubuntu;
+}
+
+.FrameFot{
+    max-width: 1000px;
+    right: 0;
+    display: flex;
+}
+
+/* .MainInfo{
+    margin
+} */
+
+#PriceSect{
+    padding-top: 100px;
+}
+
+#SliderSect{
+    padding-top: 100px;
+}
+
+.PopUp{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: transparent;
+    z-index: 100;
+    transition: .4s ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.PopUp.active{
+    visibility: visible;
+    background-color: rgba(0, 0, 0, .8);
+    opacity: 1;
+}
+
+.PopUpContainer{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.PopUpBody{
+    margin: auto;
+    width: 340px;
+    max-height: 560px;
+    border-radius: 10px;
+    background-color: #0084CE;
+}
+
+.PopHeader{
+    margin: 0 auto;
+    max-width: 250px; 
+    min-height: 60px;
+    transform: skew(-15deg);
+    background: #FF7A00;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    position: relative;
+    text-align: center;
+}
+
+.PopHeadName{
+    transform: skew(15deg);
+    font-family: Ubuntu;
+    color: white;
+    font-size: 20px;
+    font-weight: lighter;
+    padding-top: 18px
+}
+
+.PopUp input{
+    display: block;
+    margin: 0 auto;
+    width: 240px;
+    padding: 17px 20px;
+    font-family: Ubuntu;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-weight: 700;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.PopUp button{
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 280px;
+    font-family: Roboto;
+    font-size: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: #FF7A00;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+}
+
+.PopUp button:hover{
+    cursor: pointer;
+    background: #AE5503;
+}
+
+.InfoPop{
+    margin: 0 auto;
+    max-width: 280px;
+    /* margin-top: 20px; */
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+}
+
+.InfoPop h3{
+    font-family: Ubuntu;
+    color: white;
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+.PopUpClose{
+    float: right;
+    margin-right: 15px;
+    margin-top: 7px;
+    cursor: pointer;
+    font-size: 30px;
+    color: white;
+}
+
+/* .PopUp h3{
+    text-align: center;
+} */
+
+.noscroll{
+    overflow-y: hidden;
+}
+
+.alert.alert-damage{
+    visibility: hidden;
+}
+
+.alert.alert-damage.active{
+    visibility: visible;
+    color: white;
+    font-size: 20px;
+    font-family: Roboto;
+    background-color: #FF7A00;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 0 10px;
+    max-width: 300px;
+}
+
+
+.FormAjax.active{
+    display: none;
+}
+
+.Sucess{
+    visibility: hidden;
+}
+
+.Sucess.active{
+    display: block;
+    color:white; 
+    visibility: visible;
+    color: white;
+    font-size: 20px;
+    font-family: Roboto;
+    background-color: #FF7A00;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 60px;
+    margin-bottom: 10px;
+    padding: 10px 0 10px;
+    max-width: 300px;
+}
+
+.necess-field{
+    color: black;
+    font-size: 15px;
+    font-family: Ubuntu;
+    margin-top: 20px;
+    margin-left: 10%;
+    opacity: 0.5;
+}
